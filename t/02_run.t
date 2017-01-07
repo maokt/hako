@@ -24,6 +24,7 @@ ok ! -f "$ENV{HOME}/Cat", "The Cat is not at home";
 
 $ls = qx{hako $box ls $ENV{HOME}};
 is $?, 0, "no error";
+chomp $ls;
 is $ls, "Cat", "The Cat in the box is at home";
 
 done_testing;
