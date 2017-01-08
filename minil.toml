@@ -1,4 +1,4 @@
 name = "App-Hako"
-# badges = ["travis"]
+badges = ["travis"]
 module_maker="ModuleBuildTiny"
 

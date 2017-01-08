@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "keep apps away from your home",
    "author" : [
       "Marty Pauley <marty@martian.org>"
    ],
@@ -52,6 +52,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/maokt/hako/issues"
+      },
+      "homepage" : "https://github.com/maokt/hako",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/maokt/hako.git",
+         "web" : "https://github.com/maokt/hako"
+      }
+   },
    "version" : "0.01",
    "x_serialization_backend" : "JSON::PP version 2.27400"
 }

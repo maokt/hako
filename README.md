@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/maokt/hako.svg?branch=master)](https://travis-ci.org/maokt/hako)
 # NAME
 
-App::Hako - It's new $module
+App::Hako - keep apps away from your home
 
 # SYNOPSIS
 
@@ -8,7 +9,7 @@ App::Hako - It's new $module
 
 # DESCRIPTION
 
-App::Hako is ...
+App::Hako is an extremely simple container wrapper.
 
 # LICENSE
 
