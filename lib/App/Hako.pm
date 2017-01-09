@@ -1,29 +1,10 @@
 package App::Hako;
-use 5.008001;
+use v5.12;
 use strict;
 use warnings;
+use App::Hako::MagicNumbers;
 
 our $VERSION = "0.02";
-
-BEGIN {
-    require 'syscall.ph';
-    # really we want to also:
-    # require "linux/sched.ph";
-    # require "sys/mount.ph";
-    # but those headers are not in core,
-    # and I haven't ran h2ph correctly yet!
-    # Instead, use magic number constants for now.
-}
-
-use constant {
-    MS_BIND => 4096,
-    CLONE_NEWNS => 0x20000,
-    CLONE_NEWUTS => 0x4000000,
-    CLONE_NEWIPC => 0x8000000,
-    CLONE_NEWUSER => 0x10000000,
-    CLONE_NEWPID => 0x20000000,
-    CLONE_NEWNET => 0x40000000,
-};
 
 sub run {
     my ($box, @cmd) = @_;

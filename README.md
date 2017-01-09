@@ -20,4 +20,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-Marty Pauley &lt;marty@martian.org>
+Marty Pauley <marty@martian.org>
