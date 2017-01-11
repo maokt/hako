@@ -50,18 +50,32 @@ App::Hako - keep apps away from your home
 
 =head1 SYNOPSIS
 
-    use App::Hako;
+    hako <fake-home-dir> <command-to-run...>
 
 =head1 DESCRIPTION
 
-App::Hako is an extremely simple container wrapper.
+Hako is an extremely simple container that replaces your $HOME directory with another separate directory (that may be within your current $HOME), so you can run another
+program while preventing it from seeing or touching any of your files in $HOME.
+
+=head1 QUESTIONS?
+
+=head2 Could I not just change $HOME?
+
+Setting your $HOME environment variable to a different directory would have a similar effect, but any program that checks the passwd file would find your real $HOME.
+
+It also wouldn't isolate your network, which is another feature of Hako that I haven't mentioned yet.
+
+=head2 Why did you write this in Perl? Why not Go or Python or C or something else?
+
+It started as teaching material called "Build your own container runtime in 20 lines of code", and I was only able to hit the 20 lines of code target in Perl.
+
+(It's slightly more than 20 lines of code now.)
 
 =head1 LICENSE
 
 Copyright (C) Marty Pauley.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
