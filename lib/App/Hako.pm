@@ -5,7 +5,7 @@ use warnings;
 use App::Hako::MagicNumbers;
 use Getopt::Long qw{ GetOptionsFromArray :config posix_default };
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 sub usage {
     warn "usage: $0 [-n] <fake-home-dir> <command...>\n";
