@@ -3,15 +3,29 @@ use v5.12;
 use strict;
 use warnings;
 use App::Hako::MagicNumbers;
+use Getopt::Long qw{ GetOptionsFromArray :config posix_default };
 
 our $VERSION = "0.02";
 
+sub usage {
+    warn "usage: $0 [-n] <fake-home-dir> <command...>\n";
+    exit 64 unless @_;
+    exit 0;
+}
+
 sub run {
+    my $NS = CLONE_NEWUSER|CLONE_NEWNS;
+    GetOptionsFromArray(\@_,
+        "help|h|?" => \&usage,
+        "net|n" => sub { $NS |= CLONE_NEWNET },
+    ) or usage();
     my ($box, @cmd) = @_;
+    usage() unless $box and @cmd;
     chdir $box or die "cannot enter $box: $!\n";
+
     my $uid = $>;
     my ($gid) = split " ", $);
-    syscall(SYS_unshare, CLONE_NEWUSER|CLONE_NEWNS);
+    syscall(SYS_unshare, $NS);
     map_my_id($uid, $gid);
     bind_mount($box, $ENV{HOME});
     chdir or die "cannot go home: $!\n";

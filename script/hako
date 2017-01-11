@@ -2,10 +2,5 @@
 use v5.12;
 use App::Hako;
 
-if (@ARGV < 2) {
-    warn "usage: $0 <fake-home-dir> <command...>\n";
-    exit 64;
-}
-
 App::Hako::run(@ARGV);
 
