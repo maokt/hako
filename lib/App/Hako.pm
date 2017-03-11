@@ -25,7 +25,7 @@ sub run {
 
     my $uid = $>;
     my ($gid) = split " ", $);
-    syscall(SYS_unshare, $NS);
+    syscall(SYS_unshare, $NS)==0 or die "failed to unshare: $!\n";
     map_my_id($uid, $gid);
     bind_mount($box, $ENV{HOME});
     chdir or die "cannot go home: $!\n";
@@ -36,7 +36,7 @@ sub run {
 sub bind_mount {
     my ($src, $tgt) = @_;
     my $dummy = "ignore me";
-    syscall(SYS_mount, $src, $tgt, $dummy, MS_BIND, $dummy);
+    syscall(SYS_mount, $src, $tgt, $dummy, MS_BIND, $dummy)==0 or die "failed to mount: $!\n";
 }
 
 sub map_my_id {
