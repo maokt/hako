@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use App::Hako::MagicNumbers;
 use Getopt::Long qw{ GetOptionsFromArray :config posix_default };
+use Cwd 'abs_path';
 
 our $VERSION = "0.03";
 
@@ -21,6 +22,7 @@ sub run {
     ) or usage();
     my ($box, @cmd) = @_;
     usage() unless $box and @cmd;
+    $box = abs_path($box);
     chdir $box or die "cannot enter $box: $!\n";
 
     my $uid = $>;
