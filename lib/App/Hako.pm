@@ -20,9 +20,9 @@ sub run {
         "help|h|?" => \&usage,
         "net|n" => sub { $NS |= CLONE_NEWNET },
     ) or usage();
-    my ($box, @cmd) = @_;
-    usage() unless $box and @cmd;
-    $box = abs_path($box);
+    my ($boxpath, @cmd) = @_;
+    usage() unless $boxpath and @cmd;
+    my $box = abs_path($boxpath) or die "invalid directory $boxpath\n";
     chdir $box or die "cannot enter $box: $!\n";
 
     my $uid = $>;
