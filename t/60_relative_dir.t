@@ -8,11 +8,8 @@ $ENV{PATH} = "blib/script:$ENV{PATH}";
 
 # make sure we can work with a relative path (early versions failed silently)
 
-my $temp = File::Temp->newdir;
+my $temp = File::Temp->newdir(DIR => ".");
 my ($box, $dir) = fileparse("$temp");
-
-$ENV{HOME} = $dir;
-chdir $dir or die "cannot chdir $dir: $!\n";
 
 system "hako $box touch Cat";
 
