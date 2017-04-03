@@ -12,6 +12,7 @@ my $temp = File::Temp->newdir(DIR => ".");
 my ($box, $dir) = fileparse("$temp");
 
 system "hako $box touch Cat";
+is $?, 0, "touched Cat";
 
 ok -f "$box/Cat", "The Cat is in the box";
 ok ! -f "$ENV{HOME}/Cat", "The Cat is not at home";
