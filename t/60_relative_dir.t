@@ -3,15 +3,14 @@ use Test::More 0.98;
 use File::Temp;
 use File::Basename;
 
-# We want to run the script, which we are probably still building.
-$ENV{PATH} = "blib/script:$ENV{PATH}";
+my $HAKO = $ENV{HAKO} || "./blib/script/hako.pl";
 
 # make sure we can work with a relative path (early versions failed silently)
 
 my $temp = File::Temp->newdir(DIR => ".");
 my ($box, $dir) = fileparse("$temp");
 
-system "hako $box touch Cat";
+system "$HAKO $box touch Cat";
 is $?, 0, "touched Cat";
 
 ok -f "$box/Cat", "The Cat is in the box";

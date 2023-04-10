@@ -1,6 +1,10 @@
-Revision history for Perl extension App-Hako
+Revision history for Hako
 
 {{$NEXT}}
+
+0.5  2023-04-10T16:00:00Z
+    - converted module into a script
+    - moved from GitHub&Travis to GitLab
 
 0.03 2017-01-11T16:51:14Z
     - added an option for new network namespace

@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "App-Hako",
+   "name" : "Hako",
    "no_index" : {
       "directory" : [
          "t",
@@ -55,15 +55,15 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/maokt/hako/issues"
+         "web" : "https://gitlab.com/maokt/hako/-/issues"
       },
-      "homepage" : "https://github.com/maokt/hako",
+      "homepage" : "https://gitlab.com/maokt/hako",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/maokt/hako.git",
-         "web" : "https://github.com/maokt/hako"
+         "url" : "git://gitlab.com/maokt/hako.git",
+         "web" : "https://gitlab.com/maokt/hako"
       }
    },
-   "version" : "0.03",
+   "version" : "0.5",
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }

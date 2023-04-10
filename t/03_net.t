@@ -2,11 +2,10 @@ use strict;
 use Test::More 0.98;
 use File::Temp;
 
-# We want to run the script, which we are probably still building.
-$ENV{PATH} = "blib/script:$ENV{PATH}";
+my $HAKO = $ENV{HAKO} || "./blib/script/hako.pl";
 
 my $box = File::Temp->newdir;
-my $cmd = "/sbin/ip -o link list";
+my $cmd = "grep : /proc/net/dev";
 my @links;
 
 # sanity check: make sure we have more than one network link
@@ -16,11 +15,11 @@ ok @links > 1, "more than one net link outside";
 
 my $n = @links;
 
-@links = qx{hako $box $cmd};
+@links = qx{$HAKO $box $cmd};
 is $?, 0, "no error";
 is @links, $n, "same number of net links inside the regular box";
 
-@links = qx{hako -n $box $cmd};
+@links = qx{$HAKO -n $box $cmd};
 is $?, 0, "no error";
 is @links, 1, "just one net link inside the isolated box";
 

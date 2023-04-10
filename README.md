@@ -1,7 +1,8 @@
-[![Build Status](https://travis-ci.org/maokt/hako.svg?branch=master)](https://travis-ci.org/maokt/hako)
+[![pipeline status](https://gitlab.com/maokt/hako/badges/master/pipeline.svg)](https://gitlab.com/maokt/hako/-/commits/master)
+
 # NAME
 
-App::Hako - keep apps away from your home
+hako - keep apps away from your home
 
 # SYNOPSIS
 
@@ -20,17 +21,17 @@ Setting your $HOME environment variable to a different directory would have a si
 
 It also wouldn't isolate your network, which is another feature of Hako that I haven't mentioned yet.
 
-## Why did you write this in Perl? Why not Go or Python or C or something else?
+## Why did you originally write this in Perl? Why not Go or Python or C or something else?
 
 It started as teaching material called "Build your own container runtime in 20 lines of code", and I was only able to hit the 20 lines of code target in Perl.
-
-(It's slightly more than 20 lines of code now.)
+(It's more than 20 lines of code now.)
 
 # LICENSE
 
 Copyright (C) Marty Pauley.
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+This library is free software.
+You can redistribute and/or modify the Perl scripts under the same terms as Perl itself.
 
 # AUTHOR
 
