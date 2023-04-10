@@ -1,12 +1,18 @@
-package App::Hako;
-use v5.12;
-use strict;
-use warnings;
-use App::Hako::MagicNumbers;
+#!/usr/bin/perl
+use v5.24;
+our $VERSION = "0.5";
+
 use Getopt::Long qw{ GetOptionsFromArray :config posix_default };
 use Cwd 'abs_path';
 
-our $VERSION = "0.03";
+use constant {
+    SYS_unshare => 272,
+    SYS_mount => 165,
+    MS_BIND => 4096,
+    CLONE_NEWNS => 0x20000,
+    CLONE_NEWUSER => 0x10000000,
+    CLONE_NEWNET => 0x40000000,
+};
 
 sub usage {
     warn "usage: $0 [-n] <fake-home-dir> <command...>\n";
@@ -55,7 +61,8 @@ sub proc_write ($$) {
     close $pf or die "failed to close $file: $!\n";
 }
 
-1;
+run(@ARGV);
+
 __END__
 
 =encoding utf-8

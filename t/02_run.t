@@ -2,28 +2,27 @@ use strict;
 use Test::More 0.98;
 use File::Temp;
 
-# We want to run the script, which we are probably still building.
-$ENV{PATH} = "blib/script:$ENV{PATH}";
+my $HAKO = $ENV{HAKO} || "./blib/script/hako.pl";
 
 my $box = File::Temp->newdir;
 
 my $ls;
 
-$ls = qx{hako $box ls};
+$ls = qx{$HAKO $box ls};
 is $?, 0, "no error";
 is $ls, "", "empty dir";
 
-$ls = qx{hako $box ls $ENV{HOME}};
+$ls = qx{$HAKO $box ls $ENV{HOME}};
 is $?, 0, "no error";
 is $ls, "", "empty home";
 
-system "hako $box touch Cat";
+system "$HAKO $box touch Cat";
 is $?, 0, "touched Cat";
 
 ok -f "$box/Cat", "The Cat is in the box";
 ok ! -f "$ENV{HOME}/Cat", "The Cat is not at home";
 
-$ls = qx{hako $box ls $ENV{HOME}};
+$ls = qx{$HAKO $box ls $ENV{HOME}};
 is $?, 0, "no error";
 chomp $ls;
 is $ls, "Cat", "The Cat in the box is at home";

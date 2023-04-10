@@ -1,0 +1,12 @@
+stages:
+  - test
+
+test:
+  stage: test
+  image: perl:latest
+  script:
+    - cpanm --installdeps .
+    - perl Build.PL
+    - ./Build build
+    - ./Build test
+
